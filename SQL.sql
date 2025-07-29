@@ -16,3 +16,13 @@ CREATE TABLE Libro (
     precio REAL NOT NULL,
     FOREIGN KEY (id_categoria) REFERENCES Categoria(id_categoria)
 );
+
+-- Tabla Movimiento
+CREATE TABLE Movimiento (
+    id_movimiento INTEGER PRIMARY KEY,
+    id_libro INTEGER NOT NULL,
+    tipo_movimiento TEXT NOT NULL, -- 'Entrada' o 'Salida'
+    cantidad INTEGER NOT NULL,
+    fecha TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_libro) REFERENCES Libro(id_libro)
+);
